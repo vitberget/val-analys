@@ -20,7 +20,7 @@
        (format "%.2f%%")))
 
 (defn valet []
-  (let [val-data (json/read (io/reader filen) :key-fn keyword)
+  (let [val-data (json/read (io/reader url) :key-fn keyword)
         antalRostberattigade (->> val-data
                                   (:antalRostberattigadeIRaknadeValdistrikt)
                                   (dirty-string->number))
