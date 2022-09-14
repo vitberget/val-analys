@@ -1,0 +1,5 @@
+{:deps {ysera/ysera {:mvn/version "2.0.2"}
+        clj-http/clj-http {:mvn/version "3.12.3"}
+        org.clojure/data.json {:mvn/version "2.4.0"}
+        }
+ }
