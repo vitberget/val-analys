@@ -38,10 +38,18 @@
                              :partibeteckning  "Soffliggare"
                              :partiforkortning "X"})
                     (map (fn [b] (-> b
-                                     (select-keys [:antalRoster :partibeteckning :partiforkortning])
-                                     (update :antalRoster dirty-string->number))) $)
-                    (map (fn [b] (assoc b :procent (procent (:antalRoster b) antalRostberattigade))) $)
-                    (sort (fn [a b] (> (:antalRoster a) (:antalRoster b))) $))]
+                                     (select-keys [:antalRoster
+                                                   :partibeteckning
+                                                   :partiforkortning])
+                                     (update :antalRoster dirty-string->number)))
+                         $)
+                    (map (fn [b] (assoc b :procent
+                                          (procent (:antalRoster b)
+                                                   antalRostberattigade)))
+                         $)
+                    (sort (fn [a b] (> (:antalRoster a)
+                                       (:antalRoster b)))
+                          $))]
     (for [p items]
       (println (:procent p) (:partibeteckning p)))))
 
