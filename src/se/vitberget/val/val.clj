@@ -28,12 +28,9 @@
                        (->> val-data
                             (:totaltAntalRoster)
                             (dirty-string->number)))
-        items (as-> (concat (->> val-data
-                                 (:rosterPaverkaMandat)
-                                 (:partiroster))
-                            (->> val-data
-                                 (:rosterEjPaverkaMandat)
-                                 (:partiroster))) $
+        items (as-> val-data $
+                    (concat (->> $ (:rosterPaverkaMandat) (:partiroster))
+                            (->> $ (:rosterEjPaverkaMandat) (:partiroster)))
                     (conj $ {:antalRoster      soffliggare
                              :partibeteckning  "Soffliggare"
                              :partiforkortning "X"})
