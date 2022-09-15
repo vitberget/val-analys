@@ -47,7 +47,8 @@
                     (sort (fn [a b] (> (:antalRoster a)
                                        (:antalRoster b)))
                           $))]
+    (println "Röstberättigade:" antalRostberattigade)
     (for [p items]
-      (println (:procent p) (:partibeteckning p)))))
+      (println (:procent p) (:partibeteckning p) (str \( (:antalRoster p) " röster"  \))))))
 
 (valet)
